@@ -8,7 +8,7 @@
 import Foundation
 
 struct Card: Identifiable {
-  var id = UUID()
+  let id = UUID()
   var name: String?
   var number: String
   var cardholder: String?
