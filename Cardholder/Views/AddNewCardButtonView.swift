@@ -16,6 +16,7 @@ struct AddNewCardButtonView: View {
       .frame(maxWidth: 300)
       .background(LinearGradient(colors: [.blue, .pink], startPoint: .topLeading, endPoint: .trailing))
       .cornerRadius(12)
+      .shadow(radius: 12)
     
   }
 }
