@@ -59,11 +59,10 @@
 		502BF471283E81B800424F5E /* Cardholder */ = {
 			isa = PBXGroup;
 			children = (
+				502BF472283E81B800424F5E /* CardholderApp.swift */,
 				5030FE38283FAF2E002A3B95 /* ViewModels */,
 				5030FE35283FAB15002A3B95 /* Models */,
 				502BF480283E971100424F5E /* Views */,
-				502BF472283E81B800424F5E /* CardholderApp.swift */,
-				502BF474283E81B800424F5E /* MainScreenView.swift */,
 				502BF476283E81BB00424F5E /* Assets.xcassets */,
 				502BF478283E81BB00424F5E /* Preview Content */,
 			);
@@ -83,6 +82,7 @@
 			children = (
 				5030FE31283E9AA4002A3B95 /* AddNewCardButtonView.swift */,
 				5030FE33283F7BF5002A3B95 /* CardView.swift */,
+				502BF474283E81B800424F5E /* MainScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

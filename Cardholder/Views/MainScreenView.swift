@@ -10,15 +10,19 @@ import SwiftUI
 struct MainScreenView: View {
   var body: some View {
     ZStack(alignment: .bottom) {
-      Text("Hello, world!")
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
+      List {
+        ForEach(0..<5) { _ in
+          CardView()
+        }
+      }
+      .listStyle(.sidebar)
       Button {
         
       } label: {
         AddNewCardButtonView()
+          .padding()
       }
-
+      
     }
   }
 }
