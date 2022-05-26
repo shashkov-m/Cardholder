@@ -12,6 +12,9 @@
 		502BF477283E81BB00424F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502BF476283E81BB00424F5E /* Assets.xcassets */; };
 		502BF47A283E81BB00424F5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502BF479283E81BB00424F5E /* Preview Assets.xcassets */; };
 		5030FE32283E9AA4002A3B95 /* AddNewCardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE31283E9AA4002A3B95 /* AddNewCardButtonView.swift */; };
+		5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE33283F7BF5002A3B95 /* CardView.swift */; };
+		5030FE37283FAB24002A3B95 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE36283FAB24002A3B95 /* Card.swift */; };
+		5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE39283FAF3E002A3B95 /* CardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		502BF476283E81BB00424F5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		502BF479283E81BB00424F5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5030FE31283E9AA4002A3B95 /* AddNewCardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardButtonView.swift; sourceTree = "<group>"; };
+		5030FE33283F7BF5002A3B95 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5030FE36283FAB24002A3B95 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5030FE39283FAF3E002A3B95 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 		502BF471283E81B800424F5E /* Cardholder */ = {
 			isa = PBXGroup;
 			children = (
+				5030FE38283FAF2E002A3B95 /* ViewModels */,
+				5030FE35283FAB15002A3B95 /* Models */,
 				502BF480283E971100424F5E /* Views */,
 				502BF472283E81B800424F5E /* CardholderApp.swift */,
 				502BF474283E81B800424F5E /* MainScreenView.swift */,
@@ -74,8 +82,25 @@
 			isa = PBXGroup;
 			children = (
 				5030FE31283E9AA4002A3B95 /* AddNewCardButtonView.swift */,
+				5030FE33283F7BF5002A3B95 /* CardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5030FE35283FAB15002A3B95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5030FE36283FAB24002A3B95 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5030FE38283FAF2E002A3B95 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5030FE39283FAF3E002A3B95 /* CardViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +175,10 @@
 			files = (
 				5030FE32283E9AA4002A3B95 /* AddNewCardButtonView.swift in Sources */,
 				502BF475283E81B800424F5E /* MainScreenView.swift in Sources */,
+				5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */,
+				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
 				502BF473283E81B800424F5E /* CardholderApp.swift in Sources */,
+				5030FE37283FAB24002A3B95 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -261,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
