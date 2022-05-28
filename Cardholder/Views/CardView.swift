@@ -9,14 +9,14 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
-  private let viewModel = CardViewModel()
+  var card: Card
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
       Text("Bank Name")
         .font(.body)
-      Text(viewModel.makeNumber(viewModel.card.number))
+      Text(card.number)
         .font(.custom("Thonburi", size: 16))
-      Text(viewModel.card.cardholder ?? "")
+      Text(card.cardholder ?? "")
       HStack(alignment: .center) {
         Group {
           VStack {
@@ -37,12 +37,14 @@ struct CardView: View {
         Image("mastercard")
       }
     }
-    .frame(maxWidth: 300, maxHeight: 150)
+    .frame(maxWidth: .infinity, maxHeight: 150)
     .clipped()
     .padding()
     .foregroundColor(.white)
     .background(LinearGradient(colors: [.orange, .purple], startPoint: .leading, endPoint: .trailing))
+    //.overlay(Rectangle().stroke(.black, lineWidth: 5))
     .cornerRadius(12)
+    
   }
   
   private enum CustomFonts {
@@ -64,6 +66,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
   static var previews: some View {
-    CardView()
+    CardView(card: Card(number: "1234"))
   }
 }

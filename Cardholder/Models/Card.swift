@@ -32,7 +32,8 @@ struct Card: Identifiable {
     case none
   }
   
-  private func getProvider(_ string: String) -> Provider {
+  @inlinable
+  internal func getProvider(_ string: String) -> Provider {
     let array = number.compactMap { $0.wholeNumberValue }
     guard array.count >= 12 else { return .none }
     
