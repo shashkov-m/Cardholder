@@ -21,11 +21,25 @@ struct Card: Identifiable {
   
   enum CardStyle {
     case bluePinkGradient
+    case blackBG
     
-    func view() -> some View {
+    var textColor: Color {
+      switch self {
+      case .bluePinkGradient, .blackBG:
+        return .white
+      default:
+        return .black
+      }
+    }
+    
+    @ViewBuilder
+    var background: some View {
       switch self {
       case .bluePinkGradient:
-        return LinearGradient(colors: [.blue, .pink], startPoint: .leading, endPoint: .trailing)
+        LinearGradient(colors: [.blue, .pink], startPoint: .leading, endPoint: .trailing)
+      case .blackBG :
+        Image("blackBG")
+          .resizable()
       }
     }
   }

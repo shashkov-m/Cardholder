@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 @main
 struct CardholderApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainScreenView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      MainScreenView()
+        .attachPartialSheetToRoot()
     }
+  }
 }

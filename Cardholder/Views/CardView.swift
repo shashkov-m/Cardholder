@@ -13,8 +13,8 @@ struct CardView: View {
     VStack(alignment: .leading, spacing: 10) {
       Text(card.name ?? "")
         .font(.body)
-      Text(card.number)
-        .font(.custom("Thonburi", size: 16))
+      Text(makeNumber(card.number))
+        .font(CustomFonts.cardNumber.setFont)
       Text(card.cardholder ?? "")
       HStack(alignment: .center) {
         if let expireDate = card.expireDate {
@@ -31,14 +31,26 @@ struct CardView: View {
           .aspectRatio(contentMode: .fit)
           .frame(maxWidth: 64, maxHeight: 64)
       }
+      .padding(.top, 12)
     }
     .frame(maxWidth: .infinity, maxHeight: 150)
     .clipped()
     .padding()
-    .foregroundColor(.white)
-    .background(card.style.view())
+    .foregroundColor(card.style.textColor)
+    .background(card.style.background)
     .cornerRadius(12)
+    .shadow(radius: 6)
     
+  }
+  
+  private func makeNumber(_ string: String) -> String {
+    var result = ""
+    string
+      .publisher
+      .collect(4)
+      .scan("") { return $0 + $1 + " " }
+      .sink { result = $0 }
+    return result
   }
   
   private enum CustomFonts {
@@ -60,6 +72,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
   static var previews: some View {
-    CardView(card: Card(name: "Bank Name", number: "22004000000000000", cardholder: "CARDHOLDER NAME",  expireDate: "12/26", style: .bluePinkGradient))
+    CardView(card: Card(name: "Bank Name", number: "4200400000000000", cardholder: "CARDHOLDER NAME",  expireDate: "12/26", style: .bluePinkGradient))
   }
 }
