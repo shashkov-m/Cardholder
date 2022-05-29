@@ -6,43 +6,37 @@
 //
 
 import SwiftUI
-import Combine
 
 struct CardView: View {
   var card: Card
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
-      Text("Bank Name")
+      Text(card.name ?? "")
         .font(.body)
       Text(card.number)
         .font(.custom("Thonburi", size: 16))
       Text(card.cardholder ?? "")
       HStack(alignment: .center) {
-        Group {
+        if let expireDate = card.expireDate {
           VStack {
             Text("VALID THRU")
               .font(.caption)
-            Text("05/28")
-              .font(CustomFonts.digits.setFont)
-          }
-          Spacer()
-          VStack {
-            Text("CVV")
-              .font(.caption)
-            Text("✱✱✱")
+            Text(expireDate)
               .font(CustomFonts.digits.setFont)
           }
         }
         Spacer()
-        Image("mastercard")
+        card.provider.image()?
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(maxWidth: 64, maxHeight: 64)
       }
     }
     .frame(maxWidth: .infinity, maxHeight: 150)
     .clipped()
     .padding()
     .foregroundColor(.white)
-    .background(LinearGradient(colors: [.orange, .purple], startPoint: .leading, endPoint: .trailing))
-    //.overlay(Rectangle().stroke(.black, lineWidth: 5))
+    .background(card.style.view())
     .cornerRadius(12)
     
   }
@@ -66,6 +60,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
   static var previews: some View {
-    CardView(card: Card(number: "1234"))
+    CardView(card: Card(name: "Bank Name", number: "22004000000000000", cardholder: "CARDHOLDER NAME",  expireDate: "12/26", style: .bluePinkGradient))
   }
 }

@@ -5,7 +5,7 @@
 //  Created by Max Shashkov on 26.05.2022.
 //
 
-import Foundation
+import SwiftUI
 
 struct Card: Identifiable {
   let id = UUID()
@@ -14,26 +14,37 @@ struct Card: Identifiable {
   var cardholder: String?
   var expireDate: String?
   var cvv: String?
-  var style: CardStyle?
+  var style: CardStyle
   var provider: Provider {
     getProvider(number)
   }
   
   enum CardStyle {
-    case normal
+    case bluePinkGradient
+    
+    func view() -> some View {
+      switch self {
+      case .bluePinkGradient:
+        return LinearGradient(colors: [.blue, .pink], startPoint: .leading, endPoint: .trailing)
+      }
+    }
   }
-  enum Provider {
+  enum Provider: String {
     case visa
     case mastercard
     case maestro
     case mir
-    case unionPay
+    case unionpay
     case jcb
     case none
+    
+    func image() -> Image? {
+      guard self != .none else { return nil }
+      return Image(self.rawValue)
+    }
   }
   
-  @inlinable
-  internal func getProvider(_ string: String) -> Provider {
+  private func getProvider(_ string: String) -> Provider {
     let array = number.compactMap { $0.wholeNumberValue }
     guard array.count >= 12 else { return .none }
     
@@ -52,7 +63,7 @@ struct Card: Identifiable {
     if mastercard.contains(twoDigits) {
       return .mastercard
     } else if unoinPay == twoDigits {
-      return .unionPay
+      return .unionpay
     }
     
     let fourDigits = Int("\(twoDigits)\(array[2])\(array[3])") ?? 0

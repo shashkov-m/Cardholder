@@ -8,7 +8,7 @@
 import Foundation
 
 final class CardViewModel {
-  let card = Card(name: "Bank Name", number: "4564573958673845", cardholder: "CARDHOLDER NAME", expireDate: "0528", cvv: "123", style: .normal)
+  let card = Card(name: "Bank Name", number: "4564573958673845", cardholder: "CARDHOLDER NAME", expireDate: "0528", cvv: "123", style: .bluePinkGradient)
   func makeNumber(_ string: String) -> String {
     var result = ""
     string
