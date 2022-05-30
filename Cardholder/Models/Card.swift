@@ -10,25 +10,29 @@ import SwiftUI
 struct Card: Identifiable {
   let id = UUID()
   var name: String?
-  var number: String
+  var number: String?
   var cardholder: String?
   var expireDate: String?
   var cvv: String?
-  var style: CardStyle
-  var provider: Provider {
-    getProvider(number)
-  }
+  var style: CardStyle = .bluePinkGradient
+  var provider: Provider = .none
   
-  enum CardStyle {
-    case bluePinkGradient
-    case blackBG
+  enum CardStyle: String, CaseIterable {
+    case blackBG = "Adrien Olichon"
+    case yellowBananas = "Aleksandar Pasaric"
+    case whitePillars = "cottonbro"
+    case blackLeafs = "Elijah O'Donnell"
+    
+    case bluePinkGradient = "0"
+    case orangeRedGradient = "1"
+    
     
     var textColor: Color {
       switch self {
-      case .bluePinkGradient, .blackBG:
-        return .white
+      case .yellowBananas:
+        return .init(UIColor(hue: 0.1655, saturation: 1, brightness: 1, alpha: 1.0))
       default:
-        return .black
+        return .white
       }
     }
     
@@ -37,8 +41,14 @@ struct Card: Identifiable {
       switch self {
       case .bluePinkGradient:
         LinearGradient(colors: [.blue, .pink], startPoint: .leading, endPoint: .trailing)
-      case .blackBG :
-        Image("blackBG")
+      case .orangeRedGradient:
+        LinearGradient(colors: [.orange, .red], startPoint: .top, endPoint: .trailing)
+      case .whitePillars, .yellowBananas:
+        Image(self.rawValue)
+          .resizable()
+          .overlay(.black.opacity(0.2))
+      default:
+        Image(self.rawValue)
           .resizable()
       }
     }
@@ -58,9 +68,24 @@ struct Card: Identifiable {
     }
   }
   
+  enum Font {
+    case cardNumber
+    case digits
+    
+    var setFont: SwiftUI.Font {
+      let fontName = "Thonburi"
+      switch self {
+      case .cardNumber:
+        return SwiftUI.Font.custom(fontName, size: 16)
+      case .digits:
+        return SwiftUI.Font.custom(fontName, size: 14)
+      }
+    }
+    
+  }
+  
   private func getProvider(_ string: String) -> Provider {
-    let array = number.compactMap { $0.wholeNumberValue }
-    guard array.count >= 12 else { return .none }
+    guard let array = number?.compactMap({ $0.wholeNumberValue }), array.count >= 12 else { return .none }
     
     let visa = 4
     let mastercard = 51...55
