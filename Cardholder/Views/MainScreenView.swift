@@ -9,56 +9,65 @@ import SwiftUI
 import PartialSheet
 
 struct MainScreenView: View {
-  let viewModel: CardViewModel
-  @State private var cards: [Card]
-  @State private var isPartialSheet = false
-  init() {
-    self.viewModel = CardViewModel()
-    self.cards = .init(repeating: viewModel.card, count: 3)
-  }
+  @StateObject var viewModel = CardViewModel()
+  private let PSiPhoneStyle = PSIphoneStyle(background: .blur(.ultraThinMaterial), handleBarStyle: .solid(.secondary), cover: .enabled(Color.black.opacity(0.3)), cornerRadius: 12)
+  @State private var isSheetPresented = false
+  private let width = UIScreen.main.bounds.width * 0.98
+  
   var body: some View {
     NavigationView {
       ZStack(alignment: .bottom) {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
           VStack {
-            ForEach(cards) { card in
-              CardView(card: card)
-                .frame(maxWidth: .infinity)
+            ForEach(viewModel.cards) { card in
+              CardView(card: card, widht: width)
                 .padding(.bottom, -25)
+                .transition(.slide)
             }
+            
+            Rectangle()
+              .frame(width: width, height: 100)
+              .foregroundColor(.clear)
           }
-          .padding()
         }
-        PSButton(isPresenting: $isPartialSheet) {
-          AddNewCardButtonView()
-            .padding()
+        
+        Button {
+          isSheetPresented.toggle()
+        } label: {
+          RoundedButtonView(width: 300, text: "Add new card")
+            
+        }
+        .padding()
+      }
+      .sheet(isPresented: $isSheetPresented) {
+        NavigationView {
+          AddNewCardView(viewModel: viewModel, isPresented: $isSheetPresented)
         }
       }
-      .navigationTitle("Cardholder")
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
           Button("Notes") {
-            
+
           }
+          .foregroundColor(.gray)
         }
         ToolbarItem(placement: .navigationBarTrailing) {
           Button("Info") {
-            
           }
+          .foregroundColor(.gray)
         }
       }
-      .foregroundColor(.gray)
+      .navigationTitle("Cardholder")
+      .navigationBarTitleDisplayMode(.large)
     }
-    .partialSheet(isPresented: $isPartialSheet) {
-      Text("text in partial sheet")
-    }
+    .navigationViewStyle(.stack)
   }
 }
 
 struct MainScreenView_Previews: PreviewProvider {
   static var previews: some View {
-    MainScreenView()
+    MainScreenView(viewModel: CardViewModel())
       .attachPartialSheetToRoot()
-      //.preferredColorScheme(.dark)
+//      .preferredColorScheme(.dark)
   }
 }
