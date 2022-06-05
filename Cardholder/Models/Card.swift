@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Card: Identifiable {
+struct Card: Identifiable, Hashable, Equatable {
   let id = UUID()
+<<<<<<< Updated upstream
   var name: String?
   var number: String?
   var cardholder: String?
@@ -116,5 +117,19 @@ struct Card: Identifiable {
       return .none
     }
   }
+=======
+  var name: String
+  var number: String
+  var cardholder: String
+  var expireDate: String
+  var cvv: String
+  var style: CardStyle
+  var provider: Provider
+  
+  static func empty() -> Card {
+    Card(name: "", number: "", cardholder: "", expireDate: "", cvv: "", style: .allCases.first ?? .bluePinkGradient, provider: .none)
+  }
+  
+>>>>>>> Stashed changes
 }
 
