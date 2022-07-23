@@ -29,7 +29,7 @@ struct CardTextFieldView: View {
             .overlay(alignment: .trailing) {
                 Image(systemName: systemImageName).offset(x: -5, y: 0)
             }
-            .font(CustomFont.cardNumber.setFont)
+            .font(CustomFont.cardNumber.getFont)
             .disableAutocorrection(true)
             .textFieldStyle(CustomTextFieldStyle())
             .foregroundColor(.secondary)

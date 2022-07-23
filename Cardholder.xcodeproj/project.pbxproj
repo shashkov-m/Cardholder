@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5011857A288C491400843301 /* CardTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50118579288C491400843301 /* CardTextFieldView.swift */; };
+		5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011857B288C682100843301 /* CardTextFieldToCopyView.swift */; };
 		502BF473283E81B800424F5E /* CardholderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF472283E81B800424F5E /* CardholderApp.swift */; };
 		502BF475283E81B800424F5E /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF474283E81B800424F5E /* MainScreenView.swift */; };
 		502BF477283E81BB00424F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502BF476283E81BB00424F5E /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		50118579288C491400843301 /* CardTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextFieldView.swift; sourceTree = "<group>"; };
+		5011857B288C682100843301 /* CardTextFieldToCopyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextFieldToCopyView.swift; sourceTree = "<group>"; };
 		502BF46F283E81B800424F5E /* Cardholder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardholder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502BF472283E81B800424F5E /* CardholderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderApp.swift; sourceTree = "<group>"; };
 		502BF474283E81B800424F5E /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -131,9 +133,9 @@
 		502BF480283E971100424F5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				502BF474283E81B800424F5E /* MainScreenView.swift */,
 				503CCFB7284D433A006CDBBC /* Card detail views */,
 				503CCFB6284D42E3006CDBBC /* Common */,
-				503CCFB5284D42CF006CDBBC /* Main views */,
 				5045BC2A284A57AF008A633A /* Add new or edit card */,
 			);
 			path = Views;
@@ -155,14 +157,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		503CCFB5284D42CF006CDBBC /* Main views */ = {
-			isa = PBXGroup;
-			children = (
-				502BF474283E81B800424F5E /* MainScreenView.swift */,
-			);
-			path = "Main views";
-			sourceTree = "<group>";
-		};
 		503CCFB6284D42E3006CDBBC /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				503CCFB8284D435E006CDBBC /* CardDetails.swift */,
+				5011857B288C682100843301 /* CardTextFieldToCopyView.swift */,
 			);
 			path = "Card detail views";
 			sourceTree = "<group>";
@@ -342,6 +337,7 @@
 				5045BC0528479F56008A633A /* Storage.swift in Sources */,
 				5045BBFF28479B47008A633A /* Provider.swift in Sources */,
 				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
+				5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */,
 				5045BC0128479B9B008A633A /* CustomFont.swift in Sources */,
 				5011857A288C491400843301 /* CardTextFieldView.swift in Sources */,
 				502BF473283E81B800424F5E /* CardholderApp.swift in Sources */,

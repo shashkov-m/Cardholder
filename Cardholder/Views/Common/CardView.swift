@@ -16,14 +16,14 @@ struct CardView: View {
       VStack(alignment: .leading, spacing: 10) {
         Text(card.name)
         Text(card.number)
-          .font(CustomFont.cardNumber.setFont)
+          .font(CustomFont.cardNumber.getFont)
         Text(card.cardholder)
         if card.expireDate.count > 0 {
           VStack {
             Text("VALID THRU")
               .font(.caption)
             Text(card.expireDate)
-              .font(CustomFont.digits.setFont)
+              .font(CustomFont.digits.getFont)
           }
         }
       }

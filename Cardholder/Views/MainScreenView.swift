@@ -14,7 +14,7 @@ struct MainScreenView: View {
   @State private var isCreateNewSheetPresented = false
   @State private var isPartialSheetPresented = false
   @State private var selectedCard: Card?
-  private let width = UIScreen.main.bounds.width * 0.98
+  private let width = UIScreen.main.bounds.width * 0.95
   
   var body: some View {
     NavigationView {

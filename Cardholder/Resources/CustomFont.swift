@@ -11,7 +11,7 @@ enum CustomFont {
   case cardNumber
   case digits
   
-  var setFont: Font {
+  var getFont: Font {
     let fontName = "Thonburi"
     switch self {
     case .cardNumber:
