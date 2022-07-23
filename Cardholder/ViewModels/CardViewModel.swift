@@ -12,6 +12,9 @@ final class CardViewModel: ObservableObject {
   let storage = Storage()
   @Published var cards = [Card]()
   private var subscriptions = Set<AnyCancellable>()
+  private let key256 = "12345678901234561234567890123456"   // 32 bytes for AES256
+  private let iv = "abcdefghijklmnop"
+  @Published var lastEncryptedCard: Data?
   
   init() {
     storage.getSavedData()
@@ -19,6 +22,23 @@ final class CardViewModel: ObservableObject {
         self.cards = value
       }
       .store(in: &subscriptions)
+  }
+  
+  func saveCard(_ card: Card) {
+    DispatchQueue.global().async { [unowned self] in
+      self.cards.forEach { element in
+        if element.id == card.id {
+          DispatchQueue.main.async {
+           // element = card
+          }
+        }
+      }
+      DispatchQueue.main.async {
+        withAnimation {
+          self.cards.append(card)
+        }
+      }
+    }
   }
   
   @inlinable func makeCardDigits (_ string: String) -> String {

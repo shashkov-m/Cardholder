@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Card: Identifiable, Hashable, Equatable {
+struct Card: Identifiable, Hashable, Equatable, Codable {
   let id = UUID()
   var name: String
   var number: String
@@ -16,7 +16,7 @@ struct Card: Identifiable, Hashable, Equatable {
   var cvv: String
   var style: CardStyle
   var provider: Provider
-  
+    
   static func empty() -> Card {
     Card(name: "", number: "", cardholder: "", expireDate: "", cvv: "", style: .allCases.first ?? .bluePinkGradient, provider: .none)
   }

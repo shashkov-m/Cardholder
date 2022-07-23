@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum CardStyle: String, CaseIterable {
+enum CardStyle: String, CaseIterable, Codable {
   case blackBG = "Adrien Olichon"
   case yellowBananas = "Aleksandar Pasaric"
   case whitePillars = "cottonbro"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5011857A288C491400843301 /* CardTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50118579288C491400843301 /* CardTextFieldView.swift */; };
 		502BF473283E81B800424F5E /* CardholderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF472283E81B800424F5E /* CardholderApp.swift */; };
 		502BF475283E81B800424F5E /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF474283E81B800424F5E /* MainScreenView.swift */; };
 		502BF477283E81BB00424F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502BF476283E81BB00424F5E /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 		5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE33283F7BF5002A3B95 /* CardView.swift */; };
 		5030FE37283FAB24002A3B95 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE36283FAB24002A3B95 /* Card.swift */; };
 		5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE39283FAF3E002A3B95 /* CardViewModel.swift */; };
+		503CCFB9284D435E006CDBBC /* CardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503CCFB8284D435E006CDBBC /* CardDetails.swift */; };
 		5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFC28479AD7008A633A /* CardStyle.swift */; };
 		5045BBFF28479B47008A633A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFE28479B47008A633A /* Provider.swift */; };
 		5045BC0128479B9B008A633A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0028479B9B008A633A /* CustomFont.swift */; };
@@ -25,7 +27,6 @@
 		5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */; };
 		5086D2332843CEF400E471CC /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 5086D2322843CEF400E471CC /* PartialSheet */; };
 		5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5086D2342843D48200E471CC /* AddNewCardView.swift */; };
-		5086D2372844DF5300E471CC /* EmptyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5086D2362844DF5300E471CC /* EmptyCardView.swift */; };
 		50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF7392284671C2000017F1 /* HideKeyboard+View.swift */; };
 		50D43E3D284381E9001F292B /* CardholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D43E3C284381E9001F292B /* CardholderTests.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50118579288C491400843301 /* CardTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextFieldView.swift; sourceTree = "<group>"; };
 		502BF46F283E81B800424F5E /* Cardholder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardholder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502BF472283E81B800424F5E /* CardholderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderApp.swift; sourceTree = "<group>"; };
 		502BF474283E81B800424F5E /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		5030FE33283F7BF5002A3B95 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5030FE36283FAB24002A3B95 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5030FE39283FAF3E002A3B95 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		503CCFB8284D435E006CDBBC /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
 		5045BBFC28479AD7008A633A /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		5045BBFE28479B47008A633A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5045BC0028479B9B008A633A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
@@ -59,7 +62,6 @@
 		5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardPublisher+View.swift"; sourceTree = "<group>"; };
 		5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyleCollectionView.swift; sourceTree = "<group>"; };
 		5086D2342843D48200E471CC /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
-		5086D2362844DF5300E471CC /* EmptyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCardView.swift; sourceTree = "<group>"; };
 		50AF7392284671C2000017F1 /* HideKeyboard+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+View.swift"; sourceTree = "<group>"; };
 		50D43E3A284381E9001F292B /* CardholderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardholderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D43E3C284381E9001F292B /* CardholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderTests.swift; sourceTree = "<group>"; };
@@ -129,11 +131,10 @@
 		502BF480283E971100424F5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				503CCFB7284D433A006CDBBC /* Card detail views */,
+				503CCFB6284D42E3006CDBBC /* Common */,
+				503CCFB5284D42CF006CDBBC /* Main views */,
 				5045BC2A284A57AF008A633A /* Add new or edit card */,
-				5030FE31283E9AA4002A3B95 /* RoundedButtonView.swift */,
-				5030FE33283F7BF5002A3B95 /* CardView.swift */,
-				502BF474283E81B800424F5E /* MainScreenView.swift */,
-				5086D2362844DF5300E471CC /* EmptyCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +153,31 @@
 				5030FE39283FAF3E002A3B95 /* CardViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		503CCFB5284D42CF006CDBBC /* Main views */ = {
+			isa = PBXGroup;
+			children = (
+				502BF474283E81B800424F5E /* MainScreenView.swift */,
+			);
+			path = "Main views";
+			sourceTree = "<group>";
+		};
+		503CCFB6284D42E3006CDBBC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5030FE31283E9AA4002A3B95 /* RoundedButtonView.swift */,
+				5030FE33283F7BF5002A3B95 /* CardView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		503CCFB7284D433A006CDBBC /* Card detail views */ = {
+			isa = PBXGroup;
+			children = (
+				503CCFB8284D435E006CDBBC /* CardDetails.swift */,
+			);
+			path = "Card detail views";
 			sourceTree = "<group>";
 		};
 		5045BC0228479D39008A633A /* Resources */ = {
@@ -179,6 +205,7 @@
 			children = (
 				5086D2342843D48200E471CC /* AddNewCardView.swift */,
 				5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */,
+				50118579288C491400843301 /* CardTextFieldView.swift */,
 			);
 			path = "Add new or edit card";
 			sourceTree = "<group>";
@@ -309,7 +336,6 @@
 				5030FE32283E9AA4002A3B95 /* RoundedButtonView.swift in Sources */,
 				50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */,
 				502BF475283E81B800424F5E /* MainScreenView.swift in Sources */,
-				5086D2372844DF5300E471CC /* EmptyCardView.swift in Sources */,
 				5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */,
 				5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */,
 				5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */,
@@ -317,11 +343,13 @@
 				5045BBFF28479B47008A633A /* Provider.swift in Sources */,
 				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
 				5045BC0128479B9B008A633A /* CustomFont.swift in Sources */,
+				5011857A288C491400843301 /* CardTextFieldView.swift in Sources */,
 				502BF473283E81B800424F5E /* CardholderApp.swift in Sources */,
 				5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */,
 				5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */,
 				5045BC072847C03D008A633A /* CustomTextFieldStyle.swift in Sources */,
 				5030FE37283FAB24002A3B95 /* Card.swift in Sources */,
+				503CCFB9284D435E006CDBBC /* CardDetails.swift in Sources */,
 				5045BC092848D004008A633A /* CardNumberFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +412,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -454,7 +482,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

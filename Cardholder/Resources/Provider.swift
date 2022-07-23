@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Provider: String {
+enum Provider: String, Codable {
   case visa
   case mastercard
   case maestro

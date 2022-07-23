@@ -6,87 +6,84 @@
 //
 
 import SwiftUI
-import Combine
 
 struct AddNewCardView: View {
-  @State private var card: Card = .empty()
+  @State private var card: Card
   @ObservedObject var viewModel: CardViewModel
   @Binding var isPresented: Bool
   @State private var isKeyboardPresented = false
   @FocusState private var field: Field?
+  private let title: String
   private let width = UIScreen.main.bounds.width * 0.75
   
   private enum Field: Int, CaseIterable {
     case name, cardholder, number, expire, cvv
   }
   
+  init(_ card: Card = Card.empty(),
+       viewModel: CardViewModel,
+       isPresented: Binding<Bool>,
+       title: String) {
+    _card = State(initialValue: card)
+    self.viewModel = viewModel
+    self._isPresented = isPresented
+    self.title = title
+  }
+  
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack {
         CardStyleCollectionView(card: $card)
-        
-        VStack {
-          ZStack(alignment: .trailing) {
-            TextField("Card name", text: $card.name)
+          
+          VStack {
+              CardTextFieldView(textFieldName: "Card name",
+                                text: $card.name,
+                                keyboardType: .namePhonePad,
+                                systemImageName: "textformat.size")
               .focused($field, equals: .name)
-              .keyboardType(.namePhonePad)
-            Image(systemName: "textformat.size")
-              .offset(x: -5, y: 0)
-          }
-          
-          ZStack(alignment: .trailing) {
-            TextField("Cardholder name", text: $card.cardholder)
+              
+              CardTextFieldView(textFieldName: "Cardholder name",
+                                text: $card.cardholder,
+                                keyboardType: .asciiCapable,
+                                systemImageName: "person.text.rectangle")
               .focused($field, equals: .cardholder)
-              .keyboardType(.asciiCapable)
-            Image(systemName: "person.text.rectangle")
-              .offset(x: -5, y: 0)
-          }
-          
-          ZStack(alignment: .trailing) {
-            TextField("Number", text: $card.number)
+              
+              CardTextFieldView(textFieldName: "Number",
+                                text: $card.number,
+                                keyboardType: .numberPad,
+                                systemImageName: "textformat.123")
               .focused($field, equals: .number)
               .onChange(of: card.number) { newValue in
-                DispatchQueue.main.async {
-                  card.number = viewModel.makeCardDigits(newValue)
-                  card.provider = viewModel.getProvider(newValue)
-                }
+                  DispatchQueue.main.async {
+                      card.number = viewModel.makeCardDigits(newValue)
+                      card.provider = viewModel.getProvider(newValue)
+                  }
               }
-              .keyboardType(.numberPad)
-            Image(systemName: "textformat.123")
-              .offset(x: -5, y: 0)
-          }
-          
-          HStack {
-            ZStack(alignment: .trailing) {
-              TextField("Expire (06/28)", text: $card.expireDate)
-                .focused($field, equals: .expire)
-                .onChange(of: card.expireDate) { newValue in
-                  DispatchQueue.main.async {
-                    card.expireDate = viewModel.makeExpireDate(newValue)
+              
+              HStack {
+                  CardTextFieldView(textFieldName: "Expire (06/28)",
+                                    text: $card.expireDate,
+                                    keyboardType: .numberPad,
+                                    systemImageName: "calendar.badge.clock")
+                  .focused($field, equals: .expire)
+                  .onChange(of: card.expireDate) { newValue in
+                      DispatchQueue.main.async {
+                          card.expireDate = viewModel.makeExpireDate(newValue)
+                      }
                   }
-                }
-              Image(systemName: "calendar.badge.clock")
-                .offset(x: -5, y: 0)
-            }
-            
-            ZStack(alignment: .trailing) {
-              SecureField("CVV", text: $card.cvv)
-                .focused($field, equals: .cvv)
-                .onChange(of: card.cvv) { newValue in
-                  DispatchQueue.main.async {
-                    card.cvv = String(newValue.prefix(3))
+                  CardTextFieldView(textFieldName: "CVV",
+                                    text: $card.cvv,
+                                    keyboardType: .numberPad,
+                                    systemImageName: "creditcard.and.123",
+                                    secureField: true)
+                  .focused($field, equals: .cvv)
+                  .onChange(of: card.cvv) { newValue in
+                      DispatchQueue.main.async {
+                          card.cvv = String(newValue.prefix(3))
+                      }
                   }
-                }
-              Image(systemName: "creditcard.and.123")
-                .offset(x: -5, y: 0)
-            }
+              }
           }
-          .keyboardType(.numberPad)
-        }
-        .font(CustomFont.cardNumber.setFont)
-        .disableAutocorrection(true)
-        .textFieldStyle(CustomTextFieldStyle())
-        .foregroundColor(.secondary)
         .padding()
         .onReceive(keyboardPublisher) { value in
           withAnimation {
@@ -97,8 +94,8 @@ struct AddNewCardView: View {
         if !isKeyboardPresented {
           VStack {
             Button {
-              withAnimation {
-                viewModel.cards.append(card)
+              DispatchQueue.main.async {
+                viewModel.saveCard(card)
                 isPresented.toggle()
               }
             } label: {
@@ -110,14 +107,12 @@ struct AddNewCardView: View {
               .font(.caption2)
               .foregroundColor(.secondary)
               .frame(width: 240)
-            
           }
         }
       }
       .toolbar {
         ToolbarItemGroup(placement: .keyboard) {
           HStack {
-            
             Button {
               guard let index = field?.rawValue, index > 0 else { return }
               field = Field.allCases[index - 1]
@@ -142,14 +137,13 @@ struct AddNewCardView: View {
         self.hideKeyboard()
       }
     }
-    .navigationTitle("New Card")
+    .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)
   }
 }
 
 struct AddNewCardView_Previews: PreviewProvider {
   static var previews: some View {
-    AddNewCardView(viewModel: CardViewModel(), isPresented: .constant(true))
-    //      .preferredColorScheme(.dark)
+    AddNewCardView(viewModel: CardViewModel(), isPresented: .constant(true), title: "New Card")
   }
 }
