@@ -17,7 +17,7 @@ struct AddNewCardView: View {
   private let width = UIScreen.main.bounds.width * 0.75
   
   private enum Field: Int, CaseIterable {
-    case name, cardholder, number, expire, cvv
+    case name, number, cardholder, expire, cvv
   }
   
   init(_ card: Card = Card.empty(),
@@ -42,12 +42,6 @@ struct AddNewCardView: View {
                                 systemImageName: "textformat.size")
               .focused($field, equals: .name)
               
-              CardTextFieldView(textFieldName: "Cardholder name",
-                                text: $card.cardholder,
-                                keyboardType: .asciiCapable,
-                                systemImageName: "person.text.rectangle")
-              .focused($field, equals: .cardholder)
-              
               CardTextFieldView(textFieldName: "Number",
                                 text: $card.number,
                                 keyboardType: .numberPad,
@@ -59,6 +53,12 @@ struct AddNewCardView: View {
                       card.provider = viewModel.getProvider(newValue)
                   }
               }
+              
+              CardTextFieldView(textFieldName: "Cardholder name",
+                                text: $card.cardholder,
+                                keyboardType: .asciiCapable,
+                                systemImageName: "person.text.rectangle")
+              .focused($field, equals: .cardholder)
               
               HStack {
                   CardTextFieldView(textFieldName: "Expire (06/28)",
@@ -94,10 +94,8 @@ struct AddNewCardView: View {
         if !isKeyboardPresented {
           VStack {
             Button {
-              DispatchQueue.main.async {
-                viewModel.saveCard(card)
+                viewModel.save(card)
                 isPresented.toggle()
-              }
             } label: {
               RoundedButtonView(width: width, text: "Encrypt and Save")
             }

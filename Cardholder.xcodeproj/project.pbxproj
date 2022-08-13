@@ -17,7 +17,11 @@
 		5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE33283F7BF5002A3B95 /* CardView.swift */; };
 		5030FE37283FAB24002A3B95 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE36283FAB24002A3B95 /* Card.swift */; };
 		5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5030FE39283FAF3E002A3B95 /* CardViewModel.swift */; };
+		50313FAF289E99FA00B9A88D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 50313FAE289E99FA00B9A88D /* PartialSheet */; };
 		503CCFB9284D435E006CDBBC /* CardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503CCFB8284D435E006CDBBC /* CardDetails.swift */; };
+		503E113928A6E661008A7CE0 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 503E113828A6E661008A7CE0 /* KeychainSwift */; };
+		503F4363289EE01C0050F2FF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F4362289EE01C0050F2FF /* NotesView.swift */; };
+		503F4366289EEE040050F2FF /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F4365289EEE040050F2FF /* OnBoardingView.swift */; };
 		5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFC28479AD7008A633A /* CardStyle.swift */; };
 		5045BBFF28479B47008A633A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFE28479B47008A633A /* Provider.swift */; };
 		5045BC0128479B9B008A633A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0028479B9B008A633A /* CustomFont.swift */; };
@@ -26,7 +30,6 @@
 		5045BC092848D004008A633A /* CardNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC082848D004008A633A /* CardNumberFormatter.swift */; };
 		5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */; };
 		5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */; };
-		5086D2332843CEF400E471CC /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 5086D2322843CEF400E471CC /* PartialSheet */; };
 		5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5086D2342843D48200E471CC /* AddNewCardView.swift */; };
 		50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF7392284671C2000017F1 /* HideKeyboard+View.swift */; };
 		50D43E3D284381E9001F292B /* CardholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D43E3C284381E9001F292B /* CardholderTests.swift */; };
@@ -55,6 +58,8 @@
 		5030FE36283FAB24002A3B95 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5030FE39283FAF3E002A3B95 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		503CCFB8284D435E006CDBBC /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
+		503F4362289EE01C0050F2FF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		503F4365289EEE040050F2FF /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		5045BBFC28479AD7008A633A /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		5045BBFE28479B47008A633A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5045BC0028479B9B008A633A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
@@ -74,7 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5086D2332843CEF400E471CC /* PartialSheet in Frameworks */,
+				503E113928A6E661008A7CE0 /* KeychainSwift in Frameworks */,
+				50313FAF289E99FA00B9A88D /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +139,9 @@
 		502BF480283E971100424F5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				503F4364289EEDEC0050F2FF /* Onboarding */,
 				502BF474283E81B800424F5E /* MainScreenView.swift */,
+				503F4361289EE0120050F2FF /* Notes */,
 				503CCFB7284D433A006CDBBC /* Card detail views */,
 				503CCFB6284D42E3006CDBBC /* Common */,
 				5045BC2A284A57AF008A633A /* Add new or edit card */,
@@ -173,6 +181,22 @@
 				5011857B288C682100843301 /* CardTextFieldToCopyView.swift */,
 			);
 			path = "Card detail views";
+			sourceTree = "<group>";
+		};
+		503F4361289EE0120050F2FF /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				503F4362289EE01C0050F2FF /* NotesView.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		503F4364289EEDEC0050F2FF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				503F4365289EEE040050F2FF /* OnBoardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		5045BC0228479D39008A633A /* Resources */ = {
@@ -239,7 +263,8 @@
 			);
 			name = Cardholder;
 			packageProductDependencies = (
-				5086D2322843CEF400E471CC /* PartialSheet */,
+				50313FAE289E99FA00B9A88D /* PartialSheet */,
+				503E113828A6E661008A7CE0 /* KeychainSwift */,
 			);
 			productName = Cardholder;
 			productReference = 502BF46F283E81B800424F5E /* Cardholder.app */;
@@ -292,7 +317,8 @@
 			);
 			mainGroup = 502BF466283E81B800424F5E;
 			packageReferences = (
-				5086D2312843CEF400E471CC /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				50313FAD289E99FA00B9A88D /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				503E113728A6E661008A7CE0 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 502BF470283E81B800424F5E /* Products */;
 			projectDirPath = "";
@@ -330,12 +356,14 @@
 			files = (
 				5030FE32283E9AA4002A3B95 /* RoundedButtonView.swift in Sources */,
 				50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */,
+				503F4363289EE01C0050F2FF /* NotesView.swift in Sources */,
 				502BF475283E81B800424F5E /* MainScreenView.swift in Sources */,
 				5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */,
 				5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */,
 				5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */,
 				5045BC0528479F56008A633A /* Storage.swift in Sources */,
 				5045BBFF28479B47008A633A /* Provider.swift in Sources */,
+				503F4366289EEE040050F2FF /* OnBoardingView.swift in Sources */,
 				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
 				5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */,
 				5045BC0128479B9B008A633A /* CustomFont.swift in Sources */,
@@ -612,7 +640,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5086D2312843CEF400E471CC /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+		50313FAD289E99FA00B9A88D /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
 			requirement = {
@@ -620,13 +648,26 @@
 				version = 3.1.0;
 			};
 		};
+		503E113728A6E661008A7CE0 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5086D2322843CEF400E471CC /* PartialSheet */ = {
+		50313FAE289E99FA00B9A88D /* PartialSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5086D2312843CEF400E471CC /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			package = 50313FAD289E99FA00B9A88D /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		503E113828A6E661008A7CE0 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 503E113728A6E661008A7CE0 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

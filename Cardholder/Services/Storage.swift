@@ -7,12 +7,43 @@
 
 import Foundation
 import Combine
+import KeychainSwift
 
 final class Storage {
-  func getSavedData() -> Future<[Card], Never> {
-    Future() { promice in
-      let testCard = Card(name: "Card name", number: "4000 0000 0000 0000", cardholder: "CARDHOLDER NAME", expireDate: "12/24", cvv: "123", style: .blackBG, provider: .visa)
-      promice(.success([testCard, testCard]))
+    private let keychain = KeychainSwift()
+    private let prefix = "shashkov"
+    private let center = NotificationCenter.default
+    static let notificationName = Notification.Name("StorageUpdated")
+    
+    func save(card: Card) {
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(card)
+        guard let data = data else { return }
+        keychain.set(data, forKey: makeKey(card.id.uuidString), withAccess: .accessibleWhenUnlocked)
+        center.post(name: Storage.notificationName, object: nil)
     }
-  }
+    
+    func loadAll() -> AnyPublisher<[Card], Never> {
+        keychain.allKeys
+            .publisher
+            .compactMap { keychain.getData($0) }
+            .decode(type: Card.self, decoder: JSONDecoder())
+            .replaceError(with: Card.empty())
+            .collect()
+            .eraseToAnyPublisher()
+    }
+    
+    func delete(card: Card) {
+        keychain.delete(makeKey(card.id.uuidString))
+        center.post(name: Storage.notificationName, object: nil)
+    }
+    
+    func clear() {
+        keychain.clear()
+        center.post(name: Storage.notificationName, object: nil)
+    }
+    
+    private func makeKey(_ uuidString: String) -> String {
+        "\(prefix)_\(uuidString)"
+    }
 }

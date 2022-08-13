@@ -24,7 +24,7 @@ struct MainScreenView: View {
             ForEach(viewModel.cards) { card in
               CardView(card: card, width: width)
                 .padding(.bottom, -25)
-                .transition(.slide)
+                .transition(.scale)
                 .onTapGesture {
                   selectedCard = card
                   isPartialSheetPresented.toggle()
@@ -40,7 +40,7 @@ struct MainScreenView: View {
         Button {
           isCreateNewSheetPresented.toggle()
         } label: {
-          RoundedButtonView(width: 300, text: "Add new card")
+            RoundedButtonView(width: width * 0.9, text: "Add new card")
             
         }
         .padding()
@@ -53,20 +53,7 @@ struct MainScreenView: View {
 
       .partialSheet(isPresented: $isPartialSheetPresented, iPhoneStyle: PSiPhoneStyle) {
         if let card = selectedCard {
-          CardDetails(viewModel: viewModel, card: card, width: width, isPresented: $isPartialSheetPresented)
-        }
-      }
-      .toolbar {
-        ToolbarItem(placement: .navigationBarLeading) {
-          Button("Notes") {
-            
-          }
-          .foregroundColor(.gray)
-        }
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button("Info") {
-          }
-          .foregroundColor(.gray)
+            CardDetails(viewModel: viewModel, isPresented: $isPartialSheetPresented, card: card, width: width)
         }
       }
       .navigationTitle("Cardholder")
@@ -80,6 +67,6 @@ struct MainScreenView_Previews: PreviewProvider {
   static var previews: some View {
     MainScreenView(viewModel: CardViewModel())
       .attachPartialSheetToRoot()
-//      .preferredColorScheme(.dark)
+      .preferredColorScheme(.dark)
   }
 }

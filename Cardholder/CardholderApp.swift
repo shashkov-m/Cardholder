@@ -10,10 +10,15 @@ import PartialSheet
 
 @main
 struct CardholderApp: App {
-  var body: some Scene {
-    WindowGroup {
-      MainScreenView()
-        .attachPartialSheetToRoot()
+//    @AppStorage("isFirstLaunch") var isFirstLaunch = true
+    
+    var body: some Scene {
+        WindowGroup {
+            MainScreenView()
+//                .fullScreenCover(isPresented: $isFirstLaunch) {
+//                    OnBoardingView()
+//                }
+                .attachPartialSheetToRoot()
+        }
     }
-  }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Card: Identifiable, Hashable, Equatable, Codable {
-  let id = UUID()
+  var id = UUID()
   var name: String
   var number: String
   var cardholder: String
