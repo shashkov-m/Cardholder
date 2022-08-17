@@ -18,13 +18,13 @@ struct CardDetails: View {
     var body: some View {
         VStack {
             HStack {
-                Button("Delete") {
+                Button("delete") {
                     viewModel.delete(card: card)
                     isPresented = false
                 }
                 .foregroundColor(.red)
                 Spacer()
-                Button("Edit") {
+                Button("edit") {
                     isEdit.toggle()
                 }
             }
@@ -47,28 +47,28 @@ struct CardDetails: View {
                     .zIndex(0)
                     .offset(x: -10, y: 0)
             }
-            Text("Tap on the field to copy")
+            Text("tapToCopy")
                 .foregroundColor(.secondary)
                 .font(CustomFont.digits.getFont)
                 .offset(x: 0, y: 5)
             
             VStack {
                 if !card.number.isEmpty {
-                    CardTextFieldToCopyView(text: card.number, systemImage: "textformat.123")
+                    CardTextFieldToCopyView(viewModel: viewModel, text: card.number, fieldType: .number)
                     Divider()
                 }
                 if !card.cardholder.isEmpty {
-                    CardTextFieldToCopyView(text: card.cardholder, systemImage: "person.text.rectangle")
+                    CardTextFieldToCopyView(viewModel: viewModel, text: card.cardholder, fieldType: .cardholder)
                     Divider()
                 }
                 if !card.expireDate.isEmpty {
-                    CardTextFieldToCopyView(text: card.expireDate, systemImage: "calendar.badge.clock")
+                    CardTextFieldToCopyView(viewModel: viewModel, text: card.expireDate, fieldType: .expireDate)
                 }
                 if !card.expireDate.isEmpty && !card.cvv.isEmpty {
                     Divider()
                 }
                 if !card.cvv.isEmpty {
-                    CardTextFieldToCopyView(text: card.cvv, systemImage: "creditcard.and.123")
+                    CardTextFieldToCopyView(viewModel: viewModel, text: card.cvv, fieldType: .cvv)
                 }
             }
             .padding([.top, .bottom], 12)

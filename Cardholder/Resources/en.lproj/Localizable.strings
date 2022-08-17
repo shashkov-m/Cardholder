@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Cardholder
+
+  Created by Max Shashkov on 17.08.2022.
+  
+*/
+"empltyScreenTitle" = "Nothing here to display\nAdd new card by tapping this button";
+"newCard" = "New Card";
+"addNewCard" = "Add new card";
+"tapToCopy" = "Tap on the field to copy";
+"edit" = "Edit";
+"delete" = "Delete";
+"copiedToClipboard" = "Copied to Clipboard!";
+"cardName" = "Card name";
+"expire" = "Expire (06/28)";
+"cvv" = "CVV";
+"number" = "Number";
+"cardholder" = "Cardholder name";
+"saveButton" = "Encrypt and Save";
+"saveDescription" = "Credit card data will be encrypted and saved in local storage.";
+"done" = "Done";
+"deleteAll" = "Delete all card data";
+"deleteAlert" = "All data will be deleted";
+"cancel" = "Cancel";
+"onBoardDescription" = "";
+
+

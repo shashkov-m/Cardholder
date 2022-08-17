@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5011857A288C491400843301 /* CardTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50118579288C491400843301 /* CardTextFieldView.swift */; };
 		5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011857B288C682100843301 /* CardTextFieldToCopyView.swift */; };
+		501DCAE628AD681300540DB4 /* AddCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DCAE528AD681300540DB4 /* AddCardButton.swift */; };
+		501DCAE928AD7F2300540DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 501DCAEB28AD7F2300540DB4 /* Localizable.strings */; };
+		501DCAEF28AD89E100540DB4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DCAEE28AD89E100540DB4 /* SettingsView.swift */; };
 		502BF473283E81B800424F5E /* CardholderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF472283E81B800424F5E /* CardholderApp.swift */; };
 		502BF475283E81B800424F5E /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502BF474283E81B800424F5E /* MainScreenView.swift */; };
 		502BF477283E81BB00424F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502BF476283E81BB00424F5E /* Assets.xcassets */; };
@@ -20,19 +23,18 @@
 		50313FAF289E99FA00B9A88D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 50313FAE289E99FA00B9A88D /* PartialSheet */; };
 		503CCFB9284D435E006CDBBC /* CardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503CCFB8284D435E006CDBBC /* CardDetails.swift */; };
 		503E113928A6E661008A7CE0 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 503E113828A6E661008A7CE0 /* KeychainSwift */; };
-		503F4363289EE01C0050F2FF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F4362289EE01C0050F2FF /* NotesView.swift */; };
 		503F4366289EEE040050F2FF /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F4365289EEE040050F2FF /* OnBoardingView.swift */; };
 		5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFC28479AD7008A633A /* CardStyle.swift */; };
 		5045BBFF28479B47008A633A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BBFE28479B47008A633A /* Provider.swift */; };
 		5045BC0128479B9B008A633A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0028479B9B008A633A /* CustomFont.swift */; };
 		5045BC0528479F56008A633A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0428479F56008A633A /* Storage.swift */; };
 		5045BC072847C03D008A633A /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC062847C03D008A633A /* CustomTextFieldStyle.swift */; };
-		5045BC092848D004008A633A /* CardNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC082848D004008A633A /* CardNumberFormatter.swift */; };
 		5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */; };
 		5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */; };
 		5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5086D2342843D48200E471CC /* AddNewCardView.swift */; };
 		50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF7392284671C2000017F1 /* HideKeyboard+View.swift */; };
 		50D43E3D284381E9001F292B /* CardholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D43E3C284381E9001F292B /* CardholderTests.swift */; };
+		50F1D1B228A986B60077F8AD /* EmptyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1D1B128A986B60077F8AD /* EmptyMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,10 @@
 /* Begin PBXFileReference section */
 		50118579288C491400843301 /* CardTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextFieldView.swift; sourceTree = "<group>"; };
 		5011857B288C682100843301 /* CardTextFieldToCopyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextFieldToCopyView.swift; sourceTree = "<group>"; };
+		501DCAE528AD681300540DB4 /* AddCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardButton.swift; sourceTree = "<group>"; };
+		501DCAEA28AD7F2300540DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		501DCAEC28AD7F2800540DB4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		501DCAEE28AD89E100540DB4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		502BF46F283E81B800424F5E /* Cardholder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardholder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502BF472283E81B800424F5E /* CardholderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderApp.swift; sourceTree = "<group>"; };
 		502BF474283E81B800424F5E /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -58,20 +64,19 @@
 		5030FE36283FAB24002A3B95 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5030FE39283FAF3E002A3B95 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		503CCFB8284D435E006CDBBC /* CardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetails.swift; sourceTree = "<group>"; };
-		503F4362289EE01C0050F2FF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		503F4365289EEE040050F2FF /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		5045BBFC28479AD7008A633A /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		5045BBFE28479B47008A633A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5045BC0028479B9B008A633A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		5045BC0428479F56008A633A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5045BC062847C03D008A633A /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
-		5045BC082848D004008A633A /* CardNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberFormatter.swift; sourceTree = "<group>"; };
 		5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardPublisher+View.swift"; sourceTree = "<group>"; };
 		5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyleCollectionView.swift; sourceTree = "<group>"; };
 		5086D2342843D48200E471CC /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
 		50AF7392284671C2000017F1 /* HideKeyboard+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+View.swift"; sourceTree = "<group>"; };
 		50D43E3A284381E9001F292B /* CardholderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardholderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D43E3C284381E9001F292B /* CardholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderTests.swift; sourceTree = "<group>"; };
+		50F1D1B128A986B60077F8AD /* EmptyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501DCAED28AD89D600540DB4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				501DCAEE28AD89E100540DB4 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		502BF466283E81B800424F5E = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +152,11 @@
 		502BF480283E971100424F5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				501DCAED28AD89D600540DB4 /* Settings */,
 				503F4364289EEDEC0050F2FF /* Onboarding */,
 				502BF474283E81B800424F5E /* MainScreenView.swift */,
-				503F4361289EE0120050F2FF /* Notes */,
+				50F1D1B128A986B60077F8AD /* EmptyMainView.swift */,
+				501DCAE528AD681300540DB4 /* AddCardButton.swift */,
 				503CCFB7284D433A006CDBBC /* Card detail views */,
 				503CCFB6284D42E3006CDBBC /* Common */,
 				5045BC2A284A57AF008A633A /* Add new or edit card */,
@@ -183,14 +198,6 @@
 			path = "Card detail views";
 			sourceTree = "<group>";
 		};
-		503F4361289EE0120050F2FF /* Notes */ = {
-			isa = PBXGroup;
-			children = (
-				503F4362289EE01C0050F2FF /* NotesView.swift */,
-			);
-			path = Notes;
-			sourceTree = "<group>";
-		};
 		503F4364289EEDEC0050F2FF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +213,7 @@
 				5045BBFE28479B47008A633A /* Provider.swift */,
 				5045BC0028479B9B008A633A /* CustomFont.swift */,
 				5045BC062847C03D008A633A /* CustomTextFieldStyle.swift */,
-				5045BC082848D004008A633A /* CardNumberFormatter.swift */,
+				501DCAEB28AD7F2300540DB4 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -314,6 +321,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 502BF466283E81B800424F5E;
 			packageReferences = (
@@ -336,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				502BF47A283E81BB00424F5E /* Preview Assets.xcassets in Resources */,
+				501DCAE928AD7F2300540DB4 /* Localizable.strings in Resources */,
 				502BF477283E81BB00424F5E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,13 +365,13 @@
 			files = (
 				5030FE32283E9AA4002A3B95 /* RoundedButtonView.swift in Sources */,
 				50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */,
-				503F4363289EE01C0050F2FF /* NotesView.swift in Sources */,
 				502BF475283E81B800424F5E /* MainScreenView.swift in Sources */,
 				5030FE3A283FAF3E002A3B95 /* CardViewModel.swift in Sources */,
 				5045BBFD28479AD7008A633A /* CardStyle.swift in Sources */,
 				5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */,
 				5045BC0528479F56008A633A /* Storage.swift in Sources */,
 				5045BBFF28479B47008A633A /* Provider.swift in Sources */,
+				50F1D1B228A986B60077F8AD /* EmptyMainView.swift in Sources */,
 				503F4366289EEE040050F2FF /* OnBoardingView.swift in Sources */,
 				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
 				5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */,
@@ -370,11 +379,12 @@
 				5011857A288C491400843301 /* CardTextFieldView.swift in Sources */,
 				502BF473283E81B800424F5E /* CardholderApp.swift in Sources */,
 				5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */,
+				501DCAE628AD681300540DB4 /* AddCardButton.swift in Sources */,
 				5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */,
 				5045BC072847C03D008A633A /* CustomTextFieldStyle.swift in Sources */,
 				5030FE37283FAB24002A3B95 /* Card.swift in Sources */,
 				503CCFB9284D435E006CDBBC /* CardDetails.swift in Sources */,
-				5045BC092848D004008A633A /* CardNumberFormatter.swift in Sources */,
+				501DCAEF28AD89E100540DB4 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +405,18 @@
 			targetProxy = 50D43E3E284381E9001F292B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		501DCAEB28AD7F2300540DB4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				501DCAEA28AD7F2300540DB4 /* en */,
+				501DCAEC28AD7F2800540DB4 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		502BF47B283E81BB00424F5E /* Debug */ = {

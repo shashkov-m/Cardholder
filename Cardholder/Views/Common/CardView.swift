@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
+  @ObservedObject var viewModel: CardViewModel
   var card: Card
   var width: CGFloat = 380
   var height: CGFloat = 180
@@ -15,7 +16,7 @@ struct CardView: View {
     HStack {
       VStack(alignment: .leading, spacing: 10) {
         Text(card.name)
-        Text(card.number)
+          Text(viewModel.makeCardDigits(card.number))
           .font(CustomFont.cardNumber.getFont)
         Text(card.cardholder)
         if card.expireDate.count > 0 {
@@ -46,6 +47,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
   static var previews: some View {
-    CardView(card: Card(name: "Bank Name", number: "5200400000000000", cardholder: "CARDHOLDER NAME", expireDate: "12/26", cvv: "123", style: .bluePinkGradient, provider: .visa))
+      CardView(viewModel: CardViewModel(), card: Card(name: "Bank Name", number: "5200400000000000", cardholder: "CARDHOLDER NAME", expireDate: "12/26", cvv: "123", style: .bluePinkGradient, provider: .visa))
   }
 }

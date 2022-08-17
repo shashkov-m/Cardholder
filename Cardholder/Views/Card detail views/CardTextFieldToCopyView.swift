@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct CardTextFieldToCopyView: View {
-    var text: String
-    var systemImage: String
-    private let copiedText = "Copied to Clipboard!"
+    @ObservedObject var viewModel: CardViewModel
+    let text: String
+    let fieldType: FieldType
+    var isCardNumber: Bool {
+        if case .number = fieldType { return true }
+        else { return false }
+    }
+    private let copiedText = NSLocalizedString("copiedToClipboard", comment: "")
     @State private var startAnimate = false {
         didSet {
             guard startAnimate else { return }
@@ -18,6 +23,22 @@ struct CardTextFieldToCopyView: View {
                 withAnimation {
                     startAnimate = false
                 }
+            }
+        }
+    }
+    
+    enum FieldType {
+        case number
+        case cardholder
+        case expireDate
+        case cvv
+        
+        var icon: Image {
+            switch self {
+            case .number: return Image(systemName: "textformat.123")
+            case .cardholder: return Image(systemName: "person.text.rectangle")
+            case .expireDate: return Image(systemName: "calendar.badge.clock")
+            case .cvv: return Image(systemName: "creditcard.and.123")
             }
         }
     }
@@ -32,17 +53,17 @@ struct CardTextFieldToCopyView: View {
                 .foregroundColor(.secondary)
                 .transition(.opacity)
         } else {
-            Text(text)
+            Text(isCardNumber ? viewModel.makeCardDigits(text) : text)
                 .font(CustomFont.cardNumber.getFont)
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
-                    Image(systemName: systemImage).offset(x: 10, y: 0)
+                    fieldType.icon.offset(x: 10, y: 0)
                 }
                 .foregroundColor(.secondary)
                 .transition(.opacity)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    UIPasteboard.general.string = text
+                    UIPasteboard.general.string = isCardNumber ? viewModel.makeNumber(text) : text
                     withAnimation {
                         startAnimate = true
                     }
@@ -53,6 +74,6 @@ struct CardTextFieldToCopyView: View {
 
 struct CardTextFieldToCopyView_Previews: PreviewProvider {
     static var previews: some View {
-        CardTextFieldToCopyView(text: "some card text", systemImage: "textformat.123")
+        CardTextFieldToCopyView(viewModel: CardViewModel(), text: "some card text", fieldType: .number)
     }
 }

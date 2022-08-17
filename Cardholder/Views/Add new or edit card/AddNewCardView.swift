@@ -29,20 +29,24 @@ struct AddNewCardView: View {
     self._isPresented = isPresented
     self.title = title
   }
-  
+    
+    private func formatCardNumber() {
+        card.number = viewModel.makeCardDigits(card.number)
+    }
+    
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack {
         CardStyleCollectionView(card: $card)
           
           VStack {
-              CardTextFieldView(textFieldName: "Card name",
+              CardTextFieldView(textFieldName: NSLocalizedString("cardName", comment: ""),
                                 text: $card.name,
                                 keyboardType: .namePhonePad,
                                 systemImageName: "textformat.size")
               .focused($field, equals: .name)
               
-              CardTextFieldView(textFieldName: "Number",
+              CardTextFieldView(textFieldName: NSLocalizedString("number", comment: ""),
                                 text: $card.number,
                                 keyboardType: .numberPad,
                                 systemImageName: "textformat.123")
@@ -54,14 +58,14 @@ struct AddNewCardView: View {
                   }
               }
               
-              CardTextFieldView(textFieldName: "Cardholder name",
+              CardTextFieldView(textFieldName: NSLocalizedString("cardholder", comment: ""),
                                 text: $card.cardholder,
                                 keyboardType: .asciiCapable,
                                 systemImageName: "person.text.rectangle")
               .focused($field, equals: .cardholder)
               
               HStack {
-                  CardTextFieldView(textFieldName: "Expire (06/28)",
+                  CardTextFieldView(textFieldName: NSLocalizedString("expire", comment: ""),
                                     text: $card.expireDate,
                                     keyboardType: .numberPad,
                                     systemImageName: "calendar.badge.clock")
@@ -71,7 +75,7 @@ struct AddNewCardView: View {
                           card.expireDate = viewModel.makeExpireDate(newValue)
                       }
                   }
-                  CardTextFieldView(textFieldName: "CVV",
+                  CardTextFieldView(textFieldName: NSLocalizedString("cvv", comment: ""),
                                     text: $card.cvv,
                                     keyboardType: .numberPad,
                                     systemImageName: "creditcard.and.123",
@@ -94,13 +98,15 @@ struct AddNewCardView: View {
         if !isKeyboardPresented {
           VStack {
             Button {
+                var card = card
+                card.number = viewModel.makeNumber(card.number)
                 viewModel.save(card)
                 isPresented.toggle()
             } label: {
-              RoundedButtonView(width: width, text: "Encrypt and Save")
+              RoundedButtonView(width: width, text: NSLocalizedString("saveButton", comment: ""))
             }
             
-            Text("Credit card data will be encrypted and saved in local storage.")
+            Text("saveDescription")
               .multilineTextAlignment(.center)
               .font(.caption2)
               .foregroundColor(.secondary)
@@ -125,7 +131,7 @@ struct AddNewCardView: View {
               Image(systemName: "greaterthan")
             }
             Spacer()
-            Button("Done") {
+            Button("done") {
               field = nil
             }
           }
@@ -134,6 +140,9 @@ struct AddNewCardView: View {
       .onTapGesture {
         self.hideKeyboard()
       }
+    }
+    .onAppear {
+        formatCardNumber()
     }
     .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)

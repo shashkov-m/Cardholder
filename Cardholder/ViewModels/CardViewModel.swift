@@ -36,6 +36,10 @@ final class CardViewModel: ObservableObject {
         storage.delete(card: card)
     }
     
+    func clear() {
+        storage.clear()
+    }
+    
     private func configureStorageObserver() {
         NotificationCenter.default
             .publisher(for: Storage.notificationName)
@@ -58,6 +62,10 @@ final class CardViewModel: ObservableObject {
             result.append(String(numbers[i]))
         }
         return result
+    }
+    
+    @inlinable func makeNumber(_ string: String) -> String {
+        string.replacingOccurrences(of: " ", with: "")
     }
     
     @inlinable func getProvider(_ string: String) -> Provider {

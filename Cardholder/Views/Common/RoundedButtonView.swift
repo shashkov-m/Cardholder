@@ -17,7 +17,7 @@ struct RoundedButtonView: View {
       .foregroundColor(.white)
       .padding()
       .frame(width: width)
-      .background(.blue.opacity(0.9))
+      .background(.blue)
       .cornerRadius(12)
   }
 }

@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  Cardholder
+
+  Created by Max Shashkov on 17.08.2022.
+  
+*/
+"empltyScreenTitle" = "Пока не добавленно ни одной карты\n Ты можешь добавить первую нажав эту кнопку";
+"newCard" = "Новая Карта";
+"addNewCard" = "Добавить карту";
+"tapToCopy" = "Нажми на поле чтобы скопировать данные";
+"edit" = "Изменить";
+"delete" = "Удалить";
+"copiedToClipboard" = "Скопированно!";
+"cardName" = "Название карты";
+"expire" = "Срок (06/28)";
+"cvv" = "CVV";
+"number" = "Номер";
+"cardholder" = "Держатель карты";
+"saveButton" = "Зашифровать и Сохранить";
+"saveDescription" = "Данные карты будут зашифрованы и сохранены в памяти устройства";
+"done" = "Готово";
+"deleteAll" = "Удалить данные всех карт";
+"deleteAlert" = "Все данные будут удалены";
+"cancel" = "Отменить";
+"onBoardDescription" = "";
