@@ -14,7 +14,7 @@ struct AddCardButton: View {
     var body: some View {
         Rectangle()
             .ignoresSafeArea()
-            .frame(height: 50)
+            .frame(height: 70)
             .background(.bar)
             .blur(radius: 1)
             .opacity(0.4)

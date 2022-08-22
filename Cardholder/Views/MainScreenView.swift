@@ -61,7 +61,7 @@ struct MainScreenView: View {
             }
             .sheet(isPresented: $isCreateNewSheetPresented) {
                 NavigationView {
-                    AddNewCardView(viewModel: viewModel, isPresented: $isCreateNewSheetPresented, title:"newCard")
+                    AddNewCardView(viewModel: viewModel, isPresented: $isCreateNewSheetPresented, title:NSLocalizedString("newCard", comment: "new card"))
                 }
             }
             
@@ -82,6 +82,7 @@ struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
         MainScreenView(viewModel: CardViewModel())
             .attachPartialSheetToRoot()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark
+            )
     }
 }
