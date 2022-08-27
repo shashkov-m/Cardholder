@@ -20,6 +20,7 @@ final class CardViewModel: ObservableObject {
     
     func save(_ card: Card) {
         storage.save(card: card)
+        Analytics.shared.cardSaved(imageName: card.style.rawValue)
     }
     
     func loadAll() {

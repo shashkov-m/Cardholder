@@ -26,6 +26,7 @@ final class Storage {
     func loadAll() -> AnyPublisher<[Card], Never> {
         keychain.allKeys
             .publisher
+            .filter { $0.contains(prefix) }
             .compactMap { keychain.getData($0) }
             .decode(type: Card.self, decoder: JSONDecoder())
             .replaceError(with: Card.empty())

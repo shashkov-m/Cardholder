@@ -79,6 +79,9 @@ struct CardDetails: View {
             .padding()
             .offset(x: 0, y: -12)
         }
+        .onAppear {
+            Analytics.shared.cardDetailOpened()
+        }
         .sheet(isPresented: $isEdit, onDismiss: didDismissEditView) {
             NavigationView {
                 AddNewCardView(card, viewModel: viewModel, isPresented: $isEdit, title: card.name)

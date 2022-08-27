@@ -32,6 +32,10 @@
 		5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */; };
 		5079EEE8284A58A1002481D2 /* CardStyleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */; };
 		5086D2352843D48200E471CC /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5086D2342843D48200E471CC /* AddNewCardView.swift */; };
+		50A4773828B524BD00722910 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50A4773728B524BD00722910 /* GoogleService-Info.plist */; };
+		50A4773B28B5262A00722910 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 50A4773A28B5262A00722910 /* FirebaseAnalytics */; };
+		50A4773D28B5262A00722910 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 50A4773C28B5262A00722910 /* FirebaseCrashlytics */; };
+		50A4773F28B52EF800722910 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4773E28B52EF800722910 /* Analytics.swift */; };
 		50AF7393284671C2000017F1 /* HideKeyboard+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF7392284671C2000017F1 /* HideKeyboard+View.swift */; };
 		50D43E3D284381E9001F292B /* CardholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D43E3C284381E9001F292B /* CardholderTests.swift */; };
 		50F1D1B228A986B60077F8AD /* EmptyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1D1B128A986B60077F8AD /* EmptyMainView.swift */; };
@@ -73,6 +77,9 @@
 		5045BC0C28495F52008A633A /* KeyboardPublisher+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardPublisher+View.swift"; sourceTree = "<group>"; };
 		5079EEE7284A58A1002481D2 /* CardStyleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyleCollectionView.swift; sourceTree = "<group>"; };
 		5086D2342843D48200E471CC /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
+		50A4773728B524BD00722910 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50A4773E28B52EF800722910 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		50A4774028B567C800722910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50AF7392284671C2000017F1 /* HideKeyboard+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+View.swift"; sourceTree = "<group>"; };
 		50D43E3A284381E9001F292B /* CardholderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardholderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D43E3C284381E9001F292B /* CardholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderTests.swift; sourceTree = "<group>"; };
@@ -85,7 +92,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				503E113928A6E661008A7CE0 /* KeychainSwift in Frameworks */,
+				50A4773D28B5262A00722910 /* FirebaseCrashlytics in Frameworks */,
 				50313FAF289E99FA00B9A88D /* PartialSheet in Frameworks */,
+				50A4773B28B5262A00722910 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,10 +137,12 @@
 		502BF471283E81B800424F5E /* Cardholder */ = {
 			isa = PBXGroup;
 			children = (
+				50A4774028B567C800722910 /* Info.plist */,
+				502BF472283E81B800424F5E /* CardholderApp.swift */,
+				50A4773728B524BD00722910 /* GoogleService-Info.plist */,
 				5045BC0328479F38008A633A /* Services */,
 				5045BC0228479D39008A633A /* Resources */,
 				50AF7391284671AB000017F1 /* Extentions */,
-				502BF472283E81B800424F5E /* CardholderApp.swift */,
 				5030FE38283FAF2E002A3B95 /* ViewModels */,
 				5030FE35283FAB15002A3B95 /* Models */,
 				502BF480283E971100424F5E /* Views */,
@@ -222,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				5045BC0428479F56008A633A /* Storage.swift */,
+				50A4773E28B52EF800722910 /* Analytics.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -272,6 +284,8 @@
 			packageProductDependencies = (
 				50313FAE289E99FA00B9A88D /* PartialSheet */,
 				503E113828A6E661008A7CE0 /* KeychainSwift */,
+				50A4773A28B5262A00722910 /* FirebaseAnalytics */,
+				50A4773C28B5262A00722910 /* FirebaseCrashlytics */,
 			);
 			productName = Cardholder;
 			productReference = 502BF46F283E81B800424F5E /* Cardholder.app */;
@@ -327,6 +341,7 @@
 			packageReferences = (
 				50313FAD289E99FA00B9A88D /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				503E113728A6E661008A7CE0 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				50A4773928B5262A00722910 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 502BF470283E81B800424F5E /* Products */;
 			projectDirPath = "";
@@ -344,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				502BF47A283E81BB00424F5E /* Preview Assets.xcassets in Resources */,
+				50A4773828B524BD00722910 /* GoogleService-Info.plist in Resources */,
 				501DCAE928AD7F2300540DB4 /* Localizable.strings in Resources */,
 				502BF477283E81BB00424F5E /* Assets.xcassets in Resources */,
 			);
@@ -376,6 +392,7 @@
 				5030FE34283F7BF5002A3B95 /* CardView.swift in Sources */,
 				5011857C288C682100843301 /* CardTextFieldToCopyView.swift in Sources */,
 				5045BC0128479B9B008A633A /* CustomFont.swift in Sources */,
+				50A4773F28B52EF800722910 /* Analytics.swift in Sources */,
 				5011857A288C491400843301 /* CardTextFieldView.swift in Sources */,
 				502BF473283E81B800424F5E /* CardholderApp.swift in Sources */,
 				5045BC0D28495F52008A633A /* KeyboardPublisher+View.swift in Sources */,
@@ -544,6 +561,7 @@
 				DEVELOPMENT_TEAM = 6J7BMHDBAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cardholder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +591,7 @@
 				DEVELOPMENT_TEAM = 6J7BMHDBAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cardholder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -678,6 +697,14 @@
 				kind = branch;
 			};
 		};
+		50A4773928B5262A00722910 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 9.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +717,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 503E113728A6E661008A7CE0 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		50A4773A28B5262A00722910 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50A4773928B5262A00722910 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		50A4773C28B5262A00722910 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50A4773928B5262A00722910 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
