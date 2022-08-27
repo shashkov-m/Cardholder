@@ -63,6 +63,9 @@ struct AddNewCardView: View {
                                 keyboardType: .asciiCapable,
                                 systemImageName: "person.text.rectangle")
               .focused($field, equals: .cardholder)
+              .onChange(of: card.cardholder) {
+                  card.cardholder = $0.uppercased()
+              }
               
               HStack {
                   CardTextFieldView(textFieldName: NSLocalizedString("expire", comment: ""),
@@ -70,10 +73,8 @@ struct AddNewCardView: View {
                                     keyboardType: .numberPad,
                                     systemImageName: "calendar.badge.clock")
                   .focused($field, equals: .expire)
-                  .onChange(of: card.expireDate) { newValue in
-                      DispatchQueue.main.async {
-                          card.expireDate = viewModel.makeExpireDate(newValue)
-                      }
+                  .onChange(of: card.expireDate) {
+                          card.expireDate = viewModel.makeExpireDate($0)
                   }
                   CardTextFieldView(textFieldName: NSLocalizedString("cvv", comment: ""),
                                     text: $card.cvv,

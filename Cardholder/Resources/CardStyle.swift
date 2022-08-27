@@ -12,8 +12,8 @@ enum CardStyle: String, CaseIterable, Codable {
   case yellowBananas = "Aleksandar Pasaric"
   case whitePillars = "cottonbro"
   case blackLeafs = "Elijah O'Donnell"
-  case bluePinkGradient = "0"
-  case orangeRedGradient = "1"
+  case bluePinkGradient = "shashkov.bluePinkGradient"
+  case orangeRedGradient = "shashkov.orangeRedGradient"
   
   var textColor: Color {
     switch self {

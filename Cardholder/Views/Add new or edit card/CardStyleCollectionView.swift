@@ -39,7 +39,7 @@ struct CardStyleCollectionView: View {
             }
           
             .overlay(alignment: .bottomLeading) {
-              if value.rawValue.count > 2 {
+              if !value.rawValue.contains("shashkov") {
                 Text("by: \(value.rawValue)")
                   .foregroundColor(.secondary)
                   .font(.caption2)
