@@ -6,7 +6,37 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 import PartialSheet
+
+struct CardDropDelegate: DropDelegate {
+    @ObservedObject var viewModel: CardViewModel
+    @Binding var draggingCard: Card?
+    let card: Card
+    
+    func performDrop(info: DropInfo) -> Bool {
+        withAnimation {
+            $draggingCard.wrappedValue = nil
+        }
+        return true
+    }
+    
+    func dropEntered(info: DropInfo) {
+        guard let draggingCard = self.draggingCard else { return }
+        guard let from = viewModel.cards.firstIndex(of: draggingCard),
+              let to = viewModel.cards.firstIndex(of: card) else { return }
+        withAnimation {
+            viewModel.cards.move(fromOffsets: IndexSet(integer: from), toOffset: to > from ? to + 1 : to)
+        }
+        DispatchQueue.main.async {
+            viewModel.needReorder = true
+        }
+    }
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        return DropProposal(operation: .move)
+    }
+    
+}
 
 struct MainScreenView: View {
     @StateObject var viewModel = CardViewModel()
@@ -14,6 +44,7 @@ struct MainScreenView: View {
     @State private var isCreateNewSheetPresented = false
     @State private var isPartialSheetPresented = false
     @State private var selectedCard: Card?
+    @State private var draggingItem: Card?
     private let width = UIScreen.main.bounds.width * 0.95
     
     var body: some View {
@@ -39,6 +70,16 @@ struct MainScreenView: View {
                                         selectedCard = card
                                         isPartialSheetPresented.toggle()
                                     }
+                                    .opacity(draggingItem?.id == card.id ? 0.01 : 1)
+                                    .onDrag {
+                                        draggingItem = card
+                                        return NSItemProvider(object: card.id.uuidString as NSString)
+                                    } preview: {
+                                        CardView(viewModel: viewModel, card: card, width: width)
+                                    }
+                                    .onDrop(of: [UTType.text], delegate: CardDropDelegate(viewModel: viewModel,
+                                                                                          draggingCard: $draggingItem,
+                                                                                          card: card))
                             }
                             
                             Rectangle()

@@ -101,6 +101,7 @@ struct AddNewCardView: View {
             Button {
                 var card = card
                 card.number = viewModel.makeNumber(card.number)
+                card.orderIndex = viewModel.getOrderIndex(card)
                 viewModel.save(card)
                 isPresented.toggle()
             } label: {

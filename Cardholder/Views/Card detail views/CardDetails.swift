@@ -96,7 +96,7 @@ struct CardDetails: View {
 struct CardDetails_Previews: PreviewProvider {
     
     static var previews: some View {
-        let card = Card(name: "Card", number: "5234345345433456", cardholder: "HOLDER", expireDate: "14/88", cvv: "123", style: .blackLeafs, provider: .mastercard)
+        let card = Card(orderIndex: 0, name: "Card", number: "5234345345433456", cardholder: "HOLDER", expireDate: "14/88", cvv: "123", style: .blackLeafs, provider: .mastercard)
         CardDetails(viewModel: CardViewModel(), isPresented: .constant(true), card: card, width: 380)
     }
 }

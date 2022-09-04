@@ -12,11 +12,13 @@ final class CardViewModel: ObservableObject {
     private let storage = Storage()
     private var subscriptions = Set<AnyCancellable>()
     @Published var cards = [Card]()
+    var needReorder = false
     
     init() {
         loadAll()
-        configureStorageObserver()
+        configureObservers()
     }
+    
     
     func save(_ card: Card) {
         storage.save(card: card)
@@ -27,7 +29,7 @@ final class CardViewModel: ObservableObject {
         storage.loadAll()
             .sink { [weak self] cards in
                 withAnimation {
-                    self?.cards = cards
+                    self?.cards = cards.sorted(by: { $0.orderIndex < $1.orderIndex })
                 }
             }
             .store(in: &subscriptions)
@@ -41,10 +43,33 @@ final class CardViewModel: ObservableObject {
         storage.clear()
     }
     
-    private func configureStorageObserver() {
-        NotificationCenter.default
+    func reorder() {
+        guard cards.count > 1 else { return }
+        storage.reorder(cards: cards)
+    }
+    
+    func getOrderIndex(_ card: Card) -> UInt {
+        guard let lastCard = cards.last else { return 0 }
+        if cards.contains(where: { $0.id == card.id }) {
+            return card.orderIndex
+        }
+        return lastCard.orderIndex + 1
+    }
+    
+    private func configureObservers() {
+        let center = NotificationCenter.default
+        center
             .publisher(for: Storage.notificationName)
             .sink { [weak self] _ in self?.loadAll() }
+            .store(in: &subscriptions)
+        center
+            .publisher(for: UIApplication.willTerminateNotification)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                if self.needReorder {
+                    self.reorder()
+                }
+            }
             .store(in: &subscriptions)
     }
     

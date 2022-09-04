@@ -47,6 +47,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
   static var previews: some View {
-      CardView(viewModel: CardViewModel(), card: Card(name: "Bank Name", number: "5200400000000000", cardholder: "CARDHOLDER NAME", expireDate: "12/26", cvv: "123", style: .bluePinkGradient, provider: .visa))
+      CardView(viewModel: CardViewModel(), card: Card(orderIndex: 0, name: "Bank Name", number: "5200400000000000", cardholder: "CARDHOLDER NAME", expireDate: "12/26", cvv: "123", style: .bluePinkGradient, provider: .visa))
   }
 }
