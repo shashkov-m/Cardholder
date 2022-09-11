@@ -5,7 +5,7 @@
   Created by Max Shashkov on 17.08.2022.
   
 */
-"empltyScreenTitle" = "Nothing here to display\nAdd new card by tapping this button";
+"emptyScreenTitle" = "Nothing here to display\nAdd new card by tapping this button";
 "newCard" = "New Card";
 "addNewCard" = "Add new card";
 "tapToCopy" = "Tap on the field to copy";
@@ -23,6 +23,8 @@
 "deleteAll" = "Delete all card data";
 "deleteAlert" = "All data will be deleted";
 "cancel" = "Cancel";
-"onBoardDescription" = "";
+"onBoardingDescription" = "This app doesn't collect or send any data you add. All your data is stored in the device's memory in encrypted form.\nBy continuing to use this application,\nyou agree to ";
+"privacyPolicyButton" = "privacy policy";
+"continue" = "Got it";
 
 

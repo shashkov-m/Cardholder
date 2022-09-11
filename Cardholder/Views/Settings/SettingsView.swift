@@ -15,7 +15,7 @@ struct SettingsView: View {
             Button {
                 isDeleteAlertPresented.toggle()
             } label: {
-                Text("deleteAll")
+                Text(.deleteAll)
             }
             .foregroundColor(!viewModel.cards.isEmpty ? .red : .init(uiColor: .systemGray4))
             .disabled(viewModel.cards.isEmpty ? true : false)

@@ -10,7 +10,7 @@ import SwiftUI
 struct EmptyMainView: View {
     var body: some View {
         VStack {
-        Text("empltyScreenTitle")
+            Text(.emptyScreenTitle)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
             Image("arrow")

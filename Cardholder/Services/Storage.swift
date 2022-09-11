@@ -50,7 +50,7 @@ final class Storage {
         loadAll()
             .flatMap(maxPublishers: .max(1)) { $0.publisher }
             .map { card -> Card in
-                guard deleteIndex > card.orderIndex else { return card }
+                guard card.orderIndex > deleteIndex else { return card }
                 var card = card
                 card.decrementOrderIndex()
                 return card

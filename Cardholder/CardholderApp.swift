@@ -11,7 +11,7 @@ import FirebaseCore
 
 @main
 struct CardholderApp: App {
-//    @AppStorage("isFirstLaunch") var isFirstLaunch = true
+    @AppStorage("isFirstLaunch") var isFirstLaunch = true
     
     init() {
         FirebaseApp.configure()
@@ -21,9 +21,9 @@ struct CardholderApp: App {
     var body: some Scene {
         WindowGroup {
             MainScreenView()
-//                .fullScreenCover(isPresented: $isFirstLaunch) {
-//                    OnBoardingView()
-//                }
+                .fullScreenCover(isPresented: $isFirstLaunch) {
+                    OnBoardingView()
+                }
                 .attachPartialSheetToRoot()
         }
     }

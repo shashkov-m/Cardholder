@@ -9,35 +9,6 @@ import SwiftUI
 import UniformTypeIdentifiers
 import PartialSheet
 
-struct CardDropDelegate: DropDelegate {
-    @ObservedObject var viewModel: CardViewModel
-    @Binding var draggingCard: Card?
-    let card: Card
-    
-    func performDrop(info: DropInfo) -> Bool {
-        withAnimation {
-            $draggingCard.wrappedValue = nil
-        }
-        return true
-    }
-    
-    func dropEntered(info: DropInfo) {
-        guard let draggingCard = self.draggingCard else { return }
-        guard let from = viewModel.cards.firstIndex(of: draggingCard),
-              let to = viewModel.cards.firstIndex(of: card) else { return }
-        withAnimation {
-            viewModel.cards.move(fromOffsets: IndexSet(integer: from), toOffset: to > from ? to + 1 : to)
-        }
-        DispatchQueue.main.async {
-            viewModel.needReorder = true
-        }
-    }
-    func dropUpdated(info: DropInfo) -> DropProposal? {
-        return DropProposal(operation: .move)
-    }
-    
-}
-
 struct MainScreenView: View {
     @StateObject var viewModel = CardViewModel()
     private let PSiPhoneStyle = PSIphoneStyle(background: .blur(.ultraThinMaterial), handleBarStyle: .solid(.secondary), cover: .enabled(Color.black.opacity(0.3)), cornerRadius: 12)
@@ -73,7 +44,10 @@ struct MainScreenView: View {
                                     .opacity(draggingItem?.id == card.id ? 0.01 : 1)
                                     .onDrag {
                                         draggingItem = card
-                                        return NSItemProvider(object: card.id.uuidString as NSString)
+                                        let itemProvider = CardItemProvider(object: card.id.uuidString as NSString)
+                                        itemProvider.onDissapear = { draggingItem = nil
+                                        }
+                                        return itemProvider
                                     } preview: {
                                         CardView(viewModel: viewModel, card: card, width: width)
                                     }

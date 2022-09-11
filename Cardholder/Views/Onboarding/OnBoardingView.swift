@@ -12,7 +12,18 @@ struct OnBoardingView: View {
     var body: some View {
         VStack {
             if !isHidden {
-            Text("onBoardDescription")
+                Spacer()
+                VStack {
+                    HStack {
+                        Text(.onBoardingDescription)
+                        Spacer()
+                    }
+                    HStack {
+                        Link("privacyPolicyButton", destination: URL(string: "https://bit.ly/3QudC3X")!)
+                        Spacer()
+                    }
+                }
+                .font(.body)
                 .padding()
                 .multilineTextAlignment(.leading)
                 .background(.ultraThinMaterial)
@@ -23,7 +34,7 @@ struct OnBoardingView: View {
                 Button {
                     UserDefaults.standard.set(false, forKey: "isFirstLaunch")
                 } label: {
-                    RoundedButtonView(width: 300, text: "Got it")
+                    RoundedButtonView(width: 300, text: NSLocalizedString("continue", comment: ""))
                 }
             }
         }
@@ -33,12 +44,6 @@ struct OnBoardingView: View {
                 isHidden = false
             }
         }
-        .background(Image("main")
-            .resizable()
-            .ignoresSafeArea()
-            .aspectRatio(contentMode: .fill)
-            .frame(height: UIScreen.main.bounds.height)
-            .blur(radius: 1))
     }
 }
 
