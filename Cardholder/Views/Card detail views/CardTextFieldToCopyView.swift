@@ -66,13 +66,14 @@ struct CardTextFieldToCopyView: View {
                     withAnimation {
                         startAnimate = true
                     }
+                    Analytics.shared.cardDataCopied(field: fieldType.rawValue)
                 }
         }
     }
 }
 
 extension CardTextFieldToCopyView {
-    enum FieldType {
+    enum FieldType: String {
         case number
         case cardholder
         case expireDate

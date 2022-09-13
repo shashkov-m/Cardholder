@@ -47,6 +47,7 @@ struct MainScreenView: View {
                                         let itemProvider = CardItemProvider(object: card.id.uuidString as NSString)
                                         itemProvider.onDissapear = { draggingItem = nil
                                         }
+                                        Analytics.shared.dragAndDropAction()
                                         return itemProvider
                                     } preview: {
                                         CardView(viewModel: viewModel, card: card, width: width)

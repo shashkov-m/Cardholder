@@ -23,8 +23,10 @@
 "deleteAll" = "Delete all card data";
 "deleteAlert" = "All data will be deleted";
 "cancel" = "Cancel";
-"onBoardingDescription" = "This app doesn't collect or send any data you add. All your data is stored in the device's memory in encrypted form.\nBy continuing to use this application,\nyou agree to ";
-"privacyPolicyButton" = "privacy policy";
-"continue" = "Got it";
+"onBoardingDescription" = "This is a safe place to keep your credit cards data for future use.\nThe app doesn't collect or send any data you add.\nAll your data is stored in the device's memory in encrypted form.\nBy continuing to use this application,\nyou agree with [privacy policy](https://bit.ly/3QudC3X)";
+"privacyPolicyButton" = "Read the privacy policy";
+"continueButton" = "Got it";
+"welcome" = "Welcome to Cardholder!";
+"about" = "About the app";
 
 

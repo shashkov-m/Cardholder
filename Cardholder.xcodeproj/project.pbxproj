@@ -233,8 +233,8 @@
 				5045BBFE28479B47008A633A /* Provider.swift */,
 				5045BC0028479B9B008A633A /* CustomFont.swift */,
 				5045BC062847C03D008A633A /* CustomTextFieldStyle.swift */,
-				501DCAEB28AD7F2300540DB4 /* Localizable.strings */,
 				500A766128CE26110063FF54 /* Localizable.swift */,
+				501DCAEB28AD7F2300540DB4 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

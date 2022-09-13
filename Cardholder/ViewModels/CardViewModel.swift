@@ -22,7 +22,8 @@ final class CardViewModel: ObservableObject {
     
     func save(_ card: Card) {
         storage.save(card: card)
-        Analytics.shared.cardSaved(imageName: card.style.rawValue)
+        Analytics.shared.cardSaved(imageName: card.style.rawValue,
+                                   provider: card.provider.rawValue)
     }
     
     func loadAll() {
@@ -31,6 +32,7 @@ final class CardViewModel: ObservableObject {
                 withAnimation {
                     self?.cards = cards.sorted(by: { $0.orderIndex < $1.orderIndex })
                 }
+                Analytics.shared.cardsLoaded(count: cards.count)
             }
             .store(in: &subscriptions)
     }
@@ -41,6 +43,7 @@ final class CardViewModel: ObservableObject {
     
     func clear() {
         storage.clear()
+        Analytics.shared.deleteAllData()
     }
     
     func reorder() {

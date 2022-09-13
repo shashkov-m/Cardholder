@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Text {
     init(_ localizable: Localizable) {
-        self.init(NSLocalizedString(localizable.rawValue, comment: ""))
+        let text = NSLocalizedString(localizable.rawValue, comment: "")
+        self.init(text)
     }
 }

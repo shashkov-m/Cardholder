@@ -9,32 +9,28 @@ import SwiftUI
 
 struct OnBoardingView: View {
     @State private var isHidden = true
+    let text = NSLocalizedString("onBoardingDescription", comment: "")
     var body: some View {
         VStack {
             if !isHidden {
                 Spacer()
-                VStack {
-                    HStack {
-                        Text(.onBoardingDescription)
-                        Spacer()
-                    }
-                    HStack {
-                        Link("privacyPolicyButton", destination: URL(string: "https://bit.ly/3QudC3X")!)
-                        Spacer()
-                    }
-                }
-                .font(.body)
-                .padding()
-                .multilineTextAlignment(.leading)
-                .background(.ultraThinMaterial)
-                .cornerRadius(12)
-                .padding()
+                Text(.welcome)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                Text(.init(text))
+                    .font(.body)
+                    .padding()
+                    .multilineTextAlignment(.leading)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .padding()
                 
                 Spacer()
                 Button {
                     UserDefaults.standard.set(false, forKey: "isFirstLaunch")
+                    Analytics.shared.agreedWithOnboarding()
                 } label: {
-                    RoundedButtonView(width: 300, text: NSLocalizedString("continue", comment: ""))
+                    RoundedButtonView(width: 300, text: NSLocalizedString("continueButton", comment: ""))
                 }
             }
         }

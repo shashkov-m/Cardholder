@@ -27,4 +27,8 @@ enum Localizable: String {
     case deleteAlert
     case cancel
     case onBoardingDescription
+    case welcome
+    case about
+    case privacyPolicyButton
+    case continueButton
 }

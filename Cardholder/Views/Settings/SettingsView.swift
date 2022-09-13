@@ -12,6 +12,10 @@ struct SettingsView: View {
     @ObservedObject var viewModel: CardViewModel
     var body: some View {
         List {
+            Button("about") {
+                
+            }
+            Link("privacyPolicyButton", destination: URL(string: "https://bit.ly/3QudC3X")!)
             Button {
                 isDeleteAlertPresented.toggle()
             } label: {
