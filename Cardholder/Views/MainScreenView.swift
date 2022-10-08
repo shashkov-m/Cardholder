@@ -41,12 +41,9 @@ struct MainScreenView: View {
                                         selectedCard = card
                                         isPartialSheetPresented.toggle()
                                     }
-                                    .opacity(draggingItem?.id == card.id ? 0.01 : 1)
                                     .onDrag {
                                         draggingItem = card
-                                        let itemProvider = CardItemProvider(object: card.id.uuidString as NSString)
-                                        itemProvider.onDissapear = { draggingItem = nil
-                                        }
+                                        let itemProvider = NSItemProvider(object: card.id.uuidString as NSString)
                                         Analytics.shared.dragAndDropAction()
                                         return itemProvider
                                     } preview: {
@@ -73,6 +70,7 @@ struct MainScreenView: View {
                     } label: {
                         Image(systemName: "ellipsis")
                     }
+                    .contentShape(Rectangle())
                 }
             }
             .sheet(isPresented: $isCreateNewSheetPresented) {
@@ -98,7 +96,6 @@ struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
         MainScreenView(viewModel: CardViewModel())
             .attachPartialSheetToRoot()
-            .preferredColorScheme(.dark
-            )
+            .preferredColorScheme(.dark)
     }
 }

@@ -28,5 +28,7 @@
 "continueButton" = "Got it";
 "welcome" = "Welcome to Cardholder!";
 "about" = "About the app";
-
+"build" = "Build";
+"appVersion" = "App version";
+"contactMe" = "If you want to contact me, feel free to send a message at [shashkov.ma@icloud.com](mailto:shashkov.ma@icloud.com)";
 

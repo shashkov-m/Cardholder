@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var isDeleteAlertPresented = false
+    @State private var isAboutAppSheetPresented = false
     @ObservedObject var viewModel: CardViewModel
     var body: some View {
         List {
             Button("about") {
-                
+                isAboutAppSheetPresented.toggle()
             }
             Link("privacyPolicyButton", destination: URL(string: "https://bit.ly/3QudC3X")!)
             Button {
@@ -29,6 +30,9 @@ struct SettingsView: View {
             Button("delete", role: .destructive) { viewModel.clear() }
                 .foregroundColor(.red)
             Button("cancel", role: .cancel) { }
+        }
+        .sheet(isPresented: $isAboutAppSheetPresented) {
+            AboutAppView()
         }
     }
 }

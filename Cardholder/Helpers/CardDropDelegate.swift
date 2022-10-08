@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-final class CardItemProvider: NSItemProvider {
-    var onDissapear: (() -> Void)?
-    
-    deinit {
-        onDissapear?()
-    }
-}
-
 struct CardDropDelegate: DropDelegate {
     @ObservedObject var viewModel: CardViewModel
     @Binding var draggingCard: Card?

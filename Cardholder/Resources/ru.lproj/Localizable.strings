@@ -27,5 +27,8 @@
 "privacyPolicy" = "Используя приложение\nвы соглашаетесь с";
 "privacyPolicyButton" = "Ознакомиться с политикой конфиденциальности";
 "continueButton" = "Понял";
-"welcome" = "Добро пожаловать в Cardholder!";
+"welcome" = "Добро пожаловать в\nCardholder!";
 "about" = "О приложении";
+"build" = "Сборка";
+"appVersion" = "Версия приложения";
+"contactMe" = "If you want to contact me, feel free to send a message at [shashkov.ma@icloud.com](mailto:shashkov.ma@icloud.com)";
