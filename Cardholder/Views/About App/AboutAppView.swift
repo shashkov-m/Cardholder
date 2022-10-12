@@ -15,24 +15,25 @@ struct AboutAppView: View {
                 .foregroundColor(Color(uiColor: .systemGray4))
                 .cornerRadius(8)
                 .padding()
+            
             Spacer()
+            
             Text("contactMe")
                 .padding()
                 .multilineTextAlignment(.center)
                 .background(.ultraThinMaterial)
                 .cornerRadius(12)
                 .padding()
-//                .onTapGesture {
-//                    UIApplication.shared.open(URL(string: "shashkov.ma@icloud.com")!)
-//                }
+            
             Spacer()
+            
             VStack {
                 Text("Cardholder")
-                HStack {
+                HStack(spacing: 4) {
                     Text("appVersion")
                     Text(Bundle.main.appVersion ?? "1.0")
                 }
-                HStack {
+                HStack(spacing: 4) {
                     Text("build")
                     Text(Bundle.main.appBuild ?? "1")
                 }
